@@ -17,7 +17,7 @@ class SelfBot(commands.Cog):
 
     @commands.command(aliases=["tran", "tr"]) 
     async def translate(self, ctx, *args):
-        await asyncio.sleep(0.35)
+        await asyncio.sleep(0.05)
         await ctx.message.delete()
         args = ' '.join(args).split(" ", 2)
         try:
@@ -29,6 +29,7 @@ class SelfBot(commands.Cog):
                 msg = ts.google(args[2], from_language=args[1])
             else:
                 msg = ts.google(args[2])
+            await asyncio.sleep(0.3)
             await ctx.send(msg)
         except:
             print("Error")
